@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,31 +10,45 @@ namespace back_end.Controllers;
 public class BooksController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public BooksController(ApplicationDbContext context)
+    public BooksController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
     // GET: api/Books
     [HttpGet]
-    // public List<Book> GetBooks()
-    // {
-    //     return _context.Books.ToList();
-    // }
-    public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
+    public async Task<ActionResult<GetBooksResponse>> GetBooks()
     {
-        return await _context.Books
-            .Select(x => BookToDTO(x))
+        var books = await _context.Books
+            .Select(x => BookResponse.BookToResponse(x))
             .ToListAsync();
+
+        return new GetBooksResponse()
+        {
+            Books = books
+        };
     }
 
-    private static BookDTO BookToDTO(Book book) =>
-       new BookDTO
-       {
-           Id = book.Id,
-           Name = book.Name,
-           Text = book.Text,
-           PurchasePrice = book.PurchasePrice,
-       };
+    [Authorize]
+    [HttpGet("available")]
+    public async Task<ActionResult<GetAvailableBooksResponse>> GetAvailableBooks()
+    {
+        var claimsPrincipal = HttpContext.User;
+        var user = await _userManager.GetUserAsync(claimsPrincipal);
+
+        if (user == null)
+        {
+            return Unauthorized();
+        }
+
+        var books = await _context.Books.Where(b => !b.Subscriptions.Any(s => s.UserId == user.Id)).Select(x => BookResponse.BookToResponse(x)).ToListAsync();
+        return new GetAvailableBooksResponse()
+        {
+            Books = books
+        };
+    }
+
 }
