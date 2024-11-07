@@ -1,0 +1,182 @@
+[
+    {
+        "Id": -1,
+        "Name": "Thinking, Fast and Slow",
+        "Text": "An exploration of the two modes of thought: fast, intuitive thinking, and slower, logical reasoning by Nobel laureate Daniel Kahneman.",
+        "PurchasePrice": 14.99
+    },
+    {
+        "Id": -2,
+        "Name": "Good to Great: Why Some Companies Make the Leap... and Others Don't",
+        "Text": "Jim Collins investigates why some companies succeed and others fail, providing insights into building long-lasting greatness.",
+        "PurchasePrice": 15.99
+    },
+    {
+        "Id": -3,
+        "Name": "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
+        "Text": "Eric Ries shares a scientific approach to creating and managing successful startups in an age when companies need to innovate more than ever.",
+        "PurchasePrice": 16.99
+    },
+    {
+        "Id": -4,
+        "Name": "How to Win Friends and Influence People",
+        "Text": "Dale Carnegie\u2019s timeless principles on building relationships and enhancing influence, first published in 1936 and still relevant today.",
+        "PurchasePrice": 10.99
+    },
+    {
+        "Id": -5,
+        "Name": "Zero to One: Notes on Startups, or How to Build the Future",
+        "Text": "Peter Thiel explores how to create new, innovative businesses that go beyond mere competition to carve out unique niches.",
+        "PurchasePrice": 17.99
+    },
+    {
+        "Id": -6,
+        "Name": "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+        "Text": "Stephen Covey presents timeless principles that have helped millions find personal and professional effectiveness.",
+        "PurchasePrice": 12.99
+    },
+    {
+        "Id": -7,
+        "Name": "Principles: Life and Work",
+        "Text": "Ray Dalio, one of the world's most successful investors, shares the principles he has developed over his career to achieve success.",
+        "PurchasePrice": 19.99
+    },
+    {
+        "Id": -8,
+        "Name": "Start with Why: How Great Leaders Inspire Everyone to Take Action",
+        "Text": "Simon Sinek\u2019s guide to inspiring others by focusing on purpose, rooted in his concept of the Golden Circle.",
+        "PurchasePrice": 13.99
+    },
+    {
+        "Id": -9,
+        "Name": "The Innovator's Dilemma: When New Technologies Cause Great Firms to Fail",
+        "Text": "Clayton Christensen\u2019s groundbreaking book on how disruptive innovation affects industries and businesses.",
+        "PurchasePrice": 18.99
+    },
+    {
+        "Id": -10,
+        "Name": "Drive: The Surprising Truth About What Motivates Us",
+        "Text": "Daniel H. Pink examines the science behind motivation, revealing surprising insights on what drives us.",
+        "PurchasePrice": 11.99
+    },
+    {
+        "Id": -11,
+        "Name": "To Kill a Mockingbird",
+        "Text": "Harper Lee's classic novel that explores racial injustice and moral growth in the American South.",
+        "PurchasePrice": 9.99
+    },
+    {
+        "Id": -12,
+        "Name": "1984",
+        "Text": "George Orwell's dystopian novel that delves into the dangers of totalitarianism and extreme political ideology.",
+        "PurchasePrice": 8.99
+    },
+    {
+        "Id": -13,
+        "Name": "Pride and Prejudice",
+        "Text": "Jane Austen's beloved novel of manners that examines the themes of love, class, and reputation in early 19th-century England.",
+        "PurchasePrice": 7.99
+    },
+    {
+        "Id": -14,
+        "Name": "The Great Gatsby",
+        "Text": "F. Scott Fitzgerald's novel of the Jazz Age, a critique of the American Dream through the life of Jay Gatsby.",
+        "PurchasePrice": 10.99
+    },
+    {
+        "Id": -15,
+        "Name": "The Catcher in the Rye",
+        "Text": "J.D. Salinger's iconic novel following Holden Caulfield, a teenager navigating complex emotions and identity in post-war America.",
+        "PurchasePrice": 9.49
+    },
+    {
+        "Id": -16,
+        "Name": "Moby Dick",
+        "Text": "Herman Melville's epic tale of obsession and revenge, centered on Captain Ahab's relentless pursuit of the white whale.",
+        "PurchasePrice": 11.99
+    },
+    {
+        "Id": -17,
+        "Name": "War and Peace",
+        "Text": "Leo Tolstoy's historical masterpiece set during the Napoleonic Wars, examining the interconnected lives of several aristocratic families.",
+        "PurchasePrice": 12.99
+    },
+    {
+        "Id": -18,
+        "Name": "The Odyssey",
+        "Text": "Homer's ancient epic that follows the hero Odysseus as he faces trials and adventures on his journey home from the Trojan War.",
+        "PurchasePrice": 8.49
+    },
+    {
+        "Id": -19,
+        "Name": "Jane Eyre",
+        "Text": "Charlotte Bront\u00eb\u2019s gothic romance following the life of a resilient orphan girl as she grows up and finds love and self-respect.",
+        "PurchasePrice": 7.99
+    },
+    {
+        "Id": -20,
+        "Name": "The Lord of the Rings",
+        "Text": "J.R.R. Tolkien's fantasy epic about a group of heroes on a quest to destroy a powerful ring that could bring destruction to Middle-earth.",
+        "PurchasePrice": 15.99
+    },
+    {
+        "Id": -21,
+        "Name": "Ecommerce Evolved: The Essential Playbook To Build, Grow & Scale A Successful Ecommerce Business",
+        "Text": "Tanner Larsson provides a comprehensive guide on strategies to build and scale a successful eCommerce business.",
+        "PurchasePrice": 19.99
+    },
+    {
+        "Id": -22,
+        "Name": "The Everything Store: Jeff Bezos and the Age of Amazon",
+        "Text": "Brad Stone explores the story behind Amazon and how Jeff Bezos built it into one of the largest eCommerce platforms in the world.",
+        "PurchasePrice": 14.99
+    },
+    {
+        "Id": -23,
+        "Name": "One Click: Jeff Bezos and the Rise of Amazon.com",
+        "Text": "Richard L. Brandt details the meteoric rise of Amazon and the innovative strategies employed by Jeff Bezos.",
+        "PurchasePrice": 11.99
+    },
+    {
+        "Id": -24,
+        "Name": "Building a StoryBrand: Clarify Your Message So Customers Will Listen",
+        "Text": "Donald Miller offers insights on crafting compelling brand stories that connect with customers and drive engagement.",
+        "PurchasePrice": 13.99
+    },
+    {
+        "Id": -25,
+        "Name": "DotCom Secrets: The Underground Playbook for Growing Your Company Online",
+        "Text": "Russell Brunson shares secrets to successful online sales funnels and increasing conversions in eCommerce.",
+        "PurchasePrice": 17.99
+    },
+    {
+        "Id": -26,
+        "Name": "Contagious: How to Build Word of Mouth in the Digital Age",
+        "Text": "Jonah Berger explains how to create content that people want to share, an essential aspect for viral marketing in eCommerce.",
+        "PurchasePrice": 10.99
+    },
+    {
+        "Id": -27,
+        "Name": "Click Millionaires: Work Less, Live More with an Internet Business You Love",
+        "Text": "Scott Fox provides strategies for starting a profitable online business with minimal time investment.",
+        "PurchasePrice": 12.99
+    },
+    {
+        "Id": -28,
+        "Name": "Invisible Selling Machine",
+        "Text": "Ryan Deiss introduces automated sales strategies to enhance engagement and increase conversions in online businesses.",
+        "PurchasePrice": 9.99
+    },
+    {
+        "Id": -29,
+        "Name": "The Ultimate Guide to Google AdWords",
+        "Text": "Perry Marshall and Mike Rhodes offer a detailed guide on leveraging Google AdWords for effective digital marketing and eCommerce growth.",
+        "PurchasePrice": 21.99
+    },
+    {
+        "Id": -30,
+        "Name": "E-Commerce 101: Learn How to Start a Profitable Online Business Selling Products Online",
+        "Text": "Chloe Thomas provides a beginner-friendly guide to launching and running a profitable eCommerce business.",
+        "PurchasePrice": 16.99
+    }
+]
