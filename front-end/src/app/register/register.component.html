@@ -1,20 +1,28 @@
 <div class="container text-center d-flex justify-content-center">
   <form style="width: 18rem;">
-    <h5>Login</h5>
+    <h5>Register</h5>
+    <div *ngIf="errorMessage" class="mb-3">
+      <div class="alert alert-danger" role="alert">
+        {{errorMessage}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="inputEmail" class="form-label">Email address</label>
+      <input [ngModel]="email" name="email" (ngModelChange)="setEmail($event)" type="email" class="form-control"
+        id="inputEmail" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input [ngModel]="password" name="password" (ngModelChange)="setPassword($event)" type="password"
+        class="form-control" id="exampleInputPassword1">
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label for="inputPassword2" class="form-label">Confirm Password</label>
+      <input [ngModel]="confirmPassword" name="confirmPassword" (ngModelChange)="setConfirmPassword($event)"
+        type="password" class="form-control" id="inputPassword2">
     </div>
-    <button type="submit" class="btn btn-primary me-2">Submit</button>
-    <a href="#" class="btn btn-primary">Cancel</a>
+    <button (click)="register()" type="submit" class="btn btn-dark me-2" aria-disabled="submitting">Submit</button>
+    <a href="#" class="btn btn-dark" aria-disabled="submitting">Cancel</a>
   </form>
 </div>
