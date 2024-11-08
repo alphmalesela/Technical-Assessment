@@ -19,6 +19,20 @@ public class BooksController : ControllerBase
     }
 
     [AllowAnonymous]
+    [HttpGet("{id}")]
+    public async Task<ActionResult<BookResponse>> GetBook(int id)
+    {
+        var book = await _context.Books.FindAsync(id);
+
+        if (book == null)
+        {
+            return NotFound();
+        }
+
+        return BookResponse.BookToFullResponse(book);
+    }
+
+    [AllowAnonymous]
     [HttpGet()]
     public async Task<ActionResult<List<BookResponse>>> GetAvailableBooks()
     {

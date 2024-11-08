@@ -10,6 +10,14 @@ public class BookResponse
        {
            Id = book.Id,
            Name = book.Name,
+           PurchasePrice = book.PurchasePrice,
+       };
+
+    public static BookResponse BookToFullResponse(Book book) =>
+       new BookResponse
+       {
+           Id = book.Id,
+           Name = book.Name,
            Text = book.Text,
            PurchasePrice = book.PurchasePrice,
        };
