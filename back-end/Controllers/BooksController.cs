@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace back_end.Controllers;
-
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class BooksController : ControllerBase
@@ -18,37 +18,34 @@ public class BooksController : ControllerBase
         _userManager = userManager;
     }
 
-    // GET: api/Books
-    [HttpGet]
-    public async Task<ActionResult<GetBooksResponse>> GetBooks()
-    {
-        var books = await _context.Books
-            .Select(x => BookResponse.BookToResponse(x))
-            .ToListAsync();
-
-        return new GetBooksResponse()
-        {
-            Books = books
-        };
-    }
-
-    [Authorize]
-    [HttpGet("available")]
+    [AllowAnonymous]
+    [HttpGet()]
     public async Task<ActionResult<GetAvailableBooksResponse>> GetAvailableBooks()
     {
-        var claimsPrincipal = HttpContext.User;
-        var user = await _userManager.GetUserAsync(claimsPrincipal);
+        var books = new List<BookResponse>();
 
-        if (user == null)
+        if (HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
         {
-            return Unauthorized();
+            var claimsPrincipal = HttpContext.User;
+            var user = await _userManager.GetUserAsync(claimsPrincipal);
+            if (user is not null)
+            {
+                books = await _context.Books
+                    .Where(b => !b.Subscriptions.Any(s => s.UserId == user.Id))
+                    .Select(x => BookResponse.BookToResponse(x))
+                    .ToListAsync();
+            }
+        }
+        else
+        {
+            books = await _context.Books
+                .Select(x => BookResponse.BookToResponse(x))
+                .ToListAsync();
         }
 
-        var books = await _context.Books.Where(b => !b.Subscriptions.Any(s => s.UserId == user.Id)).Select(x => BookResponse.BookToResponse(x)).ToListAsync();
         return new GetAvailableBooksResponse()
         {
             Books = books
         };
     }
-
 }
