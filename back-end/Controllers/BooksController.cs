@@ -20,7 +20,7 @@ public class BooksController : ControllerBase
 
     [AllowAnonymous]
     [HttpGet()]
-    public async Task<ActionResult<GetAvailableBooksResponse>> GetAvailableBooks()
+    public async Task<ActionResult<List<BookResponse>>> GetAvailableBooks()
     {
         var books = new List<BookResponse>();
 
@@ -43,9 +43,6 @@ public class BooksController : ControllerBase
                 .ToListAsync();
         }
 
-        return new GetAvailableBooksResponse()
-        {
-            Books = books
-        };
+        return books;
     }
 }
