@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace back_end.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class SubscriptionsController : ControllerBase
@@ -20,10 +21,22 @@ public class SubscriptionsController : ControllerBase
         _userManager = userManager;
     }
 
-    // GET: api/Subscriptions
-    [Authorize]
+    [HttpGet("{id}")]
+    public async Task<ActionResult<SubscriptionResponse>> GetSubscription(int id)
+    {
+
+        var sub = await _context.Subscriptions.Where(s => s.Id == id).Include(s => s.Book).ToListAsync();
+
+        if (sub == null)
+        {
+            return NotFound();
+        }
+
+        return SubscriptionResponse.SubToResponseFull(sub.First());
+    }
+
     [HttpGet()]
-    public async Task<ActionResult<SubscriptionsResponse>> GetSubscriptions()
+    public async Task<ActionResult<List<SubscriptionResponse>>> GetSubscriptions()
     {
         var claimsPrincipal = HttpContext.User;
         var user = await _userManager.GetUserAsync(claimsPrincipal);
@@ -33,14 +46,10 @@ public class SubscriptionsController : ControllerBase
             return Unauthorized();
         }
 
-        var books = await _context.Books.Where(b => b.Subscriptions.Any(s => s.UserId == user.Id)).Select(x => BookResponse.BookToResponse(x)).ToListAsync();
-        return new SubscriptionsResponse()
-        {
-            Subscriptions = books
-        };
+        var subs = await _context.Subscriptions.Where(s => s.UserId == user.Id).Include(s => s.Book).Select(x => SubscriptionResponse.SubToResponse(x)).ToListAsync();
+        return subs;
     }
 
-    [Authorize]
     [HttpPost("add")]
     public async Task<ActionResult> AddSubscription([FromBody] AddSubscriptionRequest request)
     {

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="list-group">
+    <ng-container *ngFor="let sub of subs">
+      <a href="subscription/{{sub.id}}" class="list-group-item d-flex justify-content-between align-items-center">
+        {{sub.bookName}}
+        <span class="badge text-bg-primary rounded-pill">R {{sub.bookPurchasePrice}}</span>
+      </a>
+    </ng-container>
+  </div>
+</div>
