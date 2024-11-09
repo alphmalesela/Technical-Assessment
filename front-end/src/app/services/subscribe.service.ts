@@ -26,4 +26,8 @@ export class SubscribeService {
   getSubscription(id: number): Observable<Subscription> {
     return this.http.get<Subscription>(this.apiURLSubscriptions + '/' + id);
   }
+
+  deleteSubscription(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiURLSubscriptions}/${id}`);
+  }
 }

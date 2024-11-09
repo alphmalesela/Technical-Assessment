@@ -7,6 +7,8 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { ConfirmSubscriptionComponent } from './confirm-subscription/confirm-subscription.component';
 import { SuccessfulSubscriptionComponent } from './successful-subscription/successful-subscription.component';
+import { ConfirmCancellationComponent } from './confirm-cancellation/confirm-cancellation.component';
+import { SuccessfulCancellationComponent } from './successful-cancellation/successful-cancellation.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,4 +20,6 @@ export const routes: Routes = [
   { path: 'subscription/:id', component: SubscriptionComponent },
   { path: 'confirm-subscription/:id', component: ConfirmSubscriptionComponent },
   { path: 'successful-subscription', component: SuccessfulSubscriptionComponent },
+  { path: 'confirm-cancellation/:id', component: ConfirmCancellationComponent },
+  { path: 'successful-cancellation', component: SuccessfulCancellationComponent },
 ];

@@ -1,1 +1,19 @@
-<p>confirm-cancellation works!</p>
+<div class="container">
+  <div *ngIf="submittingFailed" class="alert alert-danger" role="alert">
+    Something went wrong when canceling subscription. Please try again.
+  </div>
+  <div class="card w-100 mb-3">
+    <div class="card-header d-flex justify-content-between">
+      <span>Confirm Subscription Cancellation</span>
+      <a class="btn btn-dark" href="subscription/{{subscription.id}}" role="button">Back</a>
+    </div>
+    <div class="card-body text-center">
+      <p class="card-text">You are now cancelling your subscription to {{subscription.bookName}} for
+        R{{subscription.bookPurchasePrice}}
+        per month.</p>
+    </div>
+    <div class="card-footer text-center text-body-secondary">
+      <button (click)="cancelSubscription()" class="btn btn-dark" aria-disabled="submitting">Yes, Cancel</button>
+    </div>
+  </div>
+</div>
