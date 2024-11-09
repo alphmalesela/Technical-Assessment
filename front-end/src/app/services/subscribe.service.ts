@@ -13,6 +13,12 @@ export class SubscribeService {
 
   constructor(private http: HttpClient) { }
 
+  addSubscription(bookId: number): Observable<Subscription[]> {
+    return this.http.post<Subscription[]>(`${this.apiURLSubscriptions}/add`, {
+      bookId
+    });
+  }
+
   getSubscriptions(): Observable<Subscription[]> {
     return this.http.get<Subscription[]>(this.apiURLSubscriptions);
   }

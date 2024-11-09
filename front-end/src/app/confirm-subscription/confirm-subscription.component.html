@@ -1,1 +1,18 @@
-<p>confirm-subscription works!</p>
+<div class="container">
+  <div *ngIf="submittingFailed" class="alert alert-danger" role="alert">
+    Something went wrong when subscribing. Please try again.
+  </div>
+  <div class="card w-100 mb-3">
+    <div class="card-header d-flex justify-content-between">
+      <span>Confirm Subscription</span>
+      <a class="btn btn-dark" href="book/{{book.id}}" role="button">Back</a>
+    </div>
+    <div class="card-body text-center">
+      <p class="card-text">You are now subscribing to {{book.name}} for R{{book.purchasePrice}}
+        per month.</p>
+    </div>
+    <div class="card-footer text-center text-body-secondary">
+      <button (click)="addSubscription()" class="btn btn-dark" aria-disabled="submitting">Yes, Subscribe</button>
+    </div>
+  </div>
+</div>

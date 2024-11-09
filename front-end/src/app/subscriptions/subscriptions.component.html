@@ -1,10 +1,13 @@
 <div class="container">
-  <div class="list-group">
+  <div *ngIf="subs.length > 0" class="list-group">
     <ng-container *ngFor="let sub of subs">
       <a href="subscription/{{sub.id}}" class="list-group-item d-flex justify-content-between align-items-center">
         {{sub.bookName}}
         <span class="badge text-bg-primary rounded-pill">R {{sub.bookPurchasePrice}}</span>
       </a>
     </ng-container>
+  </div>
+  <div *ngIf="subs.length == 0" class="alert alert-info" role="alert">
+    You have no subscriptions yet. <a href="home">Start subscribing!</a>
   </div>
 </div>
