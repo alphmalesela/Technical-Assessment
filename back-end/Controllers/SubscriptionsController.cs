@@ -25,14 +25,14 @@ public class SubscriptionsController : ControllerBase
     public async Task<ActionResult<SubscriptionResponse>> GetSubscription(int id)
     {
 
-        var sub = await _context.Subscriptions.Where(s => s.Id == id).Include(s => s.Book).ToListAsync();
+        var subs = await _context.Subscriptions.Where(s => s.Id == id).Include(s => s.Book).ToListAsync();
 
-        if (sub == null)
+        if (subs == null)
         {
             return NotFound();
         }
 
-        return SubscriptionResponse.SubToResponseFull(sub.First());
+        return SubscriptionResponse.SubToResponseFull(subs.First());
     }
 
     [HttpGet()]
@@ -70,6 +70,25 @@ public class SubscriptionsController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Created();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> CancelSubscription(int id)
+    {
+        var claimsPrincipal = HttpContext.User;
+        var user = await _userManager.GetUserAsync(claimsPrincipal);
+
+        if (user == null)
+        {
+            return Unauthorized();
+        }
+
+        var sub = await _context.Subscriptions.Where(s => s.Id == id).ToListAsync();
+
+        _context.Subscriptions.Remove(sub.First());
+        await _context.SaveChangesAsync();
+
+        return Ok();
     }
 
 }

@@ -17,7 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         base.OnModelCreating(builder);
 
         builder.Entity<Subscription>()
-            .HasKey(s => new { s.UserId, s.BookId });
+            .HasKey(s => s.Id);
 
         builder.Entity<Subscription>()
         .HasOne(s => s.User)
@@ -28,6 +28,10 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         .HasOne(s => s.Book)
         .WithMany(s => s.Subscriptions)
         .HasForeignKey(s => s.BookId);
+
+        builder.Entity<Subscription>()
+        .Property(s => s.Id)
+        .ValueGeneratedOnAdd();
 
         using var reader = new StreamReader("Data/books.json");
         var json = reader.ReadToEnd();
