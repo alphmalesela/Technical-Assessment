@@ -3,11 +3,12 @@ import { BookService } from '../services/book.service';
 import { SubscribeService } from '../services/subscribe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from '../models/subscription';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-confirm-cancellation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './confirm-cancellation.component.html',
   styleUrl: './confirm-cancellation.component.css'
 })
